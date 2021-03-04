@@ -1,0 +1,4 @@
+repository "FinalProject_XunZedong_XuZiqi@ssl://ziqixu0327@sh02-plasticscm.unity.cn:8787"
+  path "/"
+    smartbranch "/main/ziqixu" 
+     
