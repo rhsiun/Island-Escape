@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public static PlayerController instance;
     //state tracking
     public List<int> keyIdsObtained;
+    public int hungerValue;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E)) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if(Physics.Raycast(ray, out hit, 1.1f)) {
+            if(Physics.Raycast(ray, out hit, 3f)) {
                 //Handle fps interations
                 print("Interacted with" + hit.transform.name + " from" + hit.distance + "m.");
 
@@ -41,6 +42,20 @@ public class PlayerController : MonoBehaviour
                 InteractButton targetButton = hit.transform.GetComponent<InteractButton>();
                 if(targetButton != null) {
                     targetButton.Interact();
+                }
+
+                //Boat
+                Boat targetBoat = hit.transform.GetComponent<Boat>();
+                if(targetBoat != null) {
+                    targetBoat.Interact();
+                }
+
+                //Food
+                Food targetFood = hit.transform.GetComponent<Food>();
+                if(targetFood != null) {
+                    targetFood.Interact();
+                    hungerValue += 5;
+                    print("Current hungerValue is "+hungerValue);
                 }
             }
         }

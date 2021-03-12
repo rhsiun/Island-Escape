@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
             target = patrolRoute.GetChild(patrolIndex);
 
             float distance = Vector3.Distance(transform.position, target.position);
-            print("Distance: " + distance);
+            // print("Distance: " + distance);
 
             if(distance <= 1.5f) {
                 patrolIndex++;
