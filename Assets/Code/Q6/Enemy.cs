@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     //State tracking
     public int patrolIndex;
     public float chaseDistance;
+    public int blood = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +54,21 @@ public class Enemy : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.GetComponent<Bullet>())
+        {
+            Destroy(other.gameObject);
+            blood -= 10;
+            print("Enemy is attacked");
+            print("currentblood: "+blood);
+        }
+        if(blood<0)
+        {
+            Destroy(gameObject);
         }
     }
 }
