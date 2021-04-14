@@ -9,11 +9,6 @@ public class PlayerController : MonoBehaviour
     //state tracking
     public List<int> keyIdsObtained;
     public int hungerValue;
-    public Transform povOrigin;
-    public float attackRange;
-
-    public Transform projectileOrigin;
-    public GameObject projectilePrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -64,13 +59,6 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        if(Input.GetMouseButtonDown(0)){
-            PrimaryAttack();
-        }
-        if(Input.GetMouseButtonDown(1)){
-            SecondaryAttack();
-        }
-       
     }
 
     void FixedUpdate() {
@@ -81,25 +69,5 @@ public class PlayerController : MonoBehaviour
         if(other.gameObject.layer == LayerMask.NameToLayer("KillZone")) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-    }
-
-    void PrimaryAttack()
-    {
-        print("primaryattack");
-        RaycastHit hit;
-        bool hitSomething = Physics.Raycast(povOrigin.position, povOrigin.forward,out hit,attackRange);
-        if(hitSomething){
-            Rigidbody targetRigidbody = hit.transform.GetComponent<Rigidbody>();
-            if(targetRigidbody){
-                targetRigidbody.AddForce(povOrigin.forward*100f,ForceMode.Impulse);
-            }
-        }
-    }
-    void SecondaryAttack()
-    {
-        print("secondaryattack");
-        GameObject projectile = Instantiate(projectilePrefab,projectileOrigin.position,Quaternion.LookRotation(povOrigin.forward));
-        projectile.transform.localScale = Vector3.one*5f;
-        projectile.GetComponent<Rigidbody>().AddForce(povOrigin.forward*25f,ForceMode.Impulse);
     }
 }
