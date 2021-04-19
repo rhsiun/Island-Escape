@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     //State tracking
     public int patrolIndex;
     public float chaseDistance;
+    public int blood = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,10 @@ public class Enemy : MonoBehaviour
 
         if(priorityTargetDistance <= chaseDistance) {
             target = priorityTarget;
+            print("within attack range for the enemy");
+            target.GetComponent<PlayerController>().blood -= 1;
+            print("the character is being attacked by the enemy");
+            print(target.GetComponent<PlayerController>().blood);
             GetComponent<Renderer>().material.color = Color.red;
         } else {
             GetComponent<Renderer>().material.color = Color.white;
@@ -53,6 +58,21 @@ public class Enemy : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.GetComponent<Bullet>())
+        {
+            Destroy(other.gameObject);
+            blood -= 10;
+            print("Enemy is attacked");
+            print("currentblood: "+blood);
+        }
+        if(blood<0)
+        {
+            Destroy(gameObject);
         }
     }
 }
