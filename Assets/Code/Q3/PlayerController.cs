@@ -8,7 +8,8 @@ public class PlayerController : MonoBehaviour
     public static PlayerController instance;
     //state tracking
     public List<int> keyIdsObtained;
-    public int hungerValue;
+    public int hungerValue = 0;
+    public int blood = 100;
     public Transform povOrigin;
     public float attackRange;
 
@@ -30,6 +31,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(hungerValue < 20)
+        {
+            print("You are starving, please find something to eat");
+        }
         if(Input.GetKeyDown(KeyCode.E)) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -61,6 +66,13 @@ public class PlayerController : MonoBehaviour
                     targetFood.Interact();
                     hungerValue += 5;
                     print("Current hungerValue is "+hungerValue);
+                }
+
+                //Barrel
+                Barrel targetBarrel = hit.transform.GetComponent<Barrel>();
+                if(targetBarrel != null) {
+                    targetBarrel.Interact(instance);
+                    print("Obtained barrel");
                 }
             }
         }

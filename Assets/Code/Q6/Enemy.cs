@@ -31,6 +31,10 @@ public class Enemy : MonoBehaviour
 
         if(priorityTargetDistance <= chaseDistance) {
             target = priorityTarget;
+            print("within attack range for the enemy");
+            target.GetComponent<PlayerController>().blood -= 1;
+            print("the character is being attacked by the enemy");
+            print(target.GetComponent<PlayerController>().blood);
             GetComponent<Renderer>().material.color = Color.red;
         } else {
             GetComponent<Renderer>().material.color = Color.white;
