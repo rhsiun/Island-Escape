@@ -54,6 +54,12 @@ public class PlayerController : MonoBehaviour
                     targetButton.Interact();
                 }
 
+                //Box
+                Box targetBox = hit.transform.GetComponent<Box>();
+                if(targetBox != null) {
+                    targetBox.Interact();
+                }
+
                 //Boat
                 Boat targetBoat = hit.transform.GetComponent<Boat>();
                 if(targetBoat != null) {
