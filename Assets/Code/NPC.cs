@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 [System.Serializable]
 public class NPC : MonoBehaviour {
@@ -9,7 +10,8 @@ public class NPC : MonoBehaviour {
     public Transform ChatBackGround;
     public Transform NPCCharacter;
 
-    private DialogueSystem dialogueSystem;
+    public DialogueSystem dialogueSystem;
+    public GameObject player;
 
     private int encounterTime=0;
 
@@ -19,7 +21,7 @@ public class NPC : MonoBehaviour {
     public string[] sentences;
 
     void Start () {
-        dialogueSystem = FindObjectOfType<DialogueSystem>();
+        
     }
 	
 	void Update () {
@@ -31,9 +33,11 @@ public class NPC : MonoBehaviour {
     public void OnTriggerStay(Collider other)
     {
         if(encounterTime==0) {
+            player.gameObject.GetComponent<PlayerController>().enabled= false;
+            //player.gameObject.GetComponent<RigidbodyFirstPersonController>().enabled=false;
             this.gameObject.GetComponent<NPC>().enabled = true;
             dialogueSystem.EnterRangeOfNPC();
-            if ((other.gameObject.tag == "Player"))
+            if ((other.gameObject.tag == "Player") && (this.gameObject.tag == "NPC"))
             {
                 this.gameObject.GetComponent<NPC>().enabled = true;
                 dialogueSystem.Names = Name;
@@ -48,6 +52,7 @@ public class NPC : MonoBehaviour {
     public void OnTriggerExit()
     {
         dialogueSystem.OutOfRange();
+        player.gameObject.GetComponent<PlayerController>().enabled= true;
         this.gameObject.GetComponent<NPC>().enabled = false;
         encounterTime = 0;
     }

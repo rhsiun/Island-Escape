@@ -26,9 +26,9 @@ public class DialogueSystem: MonoBehaviour {
     public bool dialogueEnded = false;
     public bool outOfRange = true;
 
-    private bool sentenceEnded = false;
-    private int tempDialogueIndex = 0;
-    private int dialogueLength = 0;
+    public bool sentenceEnded = true;
+    public int tempDialogueIndex = 0;
+    public int dialogueLength = 0;
 
     public AudioClip audioClip;
     AudioSource audioSource;
@@ -60,6 +60,7 @@ public class DialogueSystem: MonoBehaviour {
 
     public void NPCName()
     {
+        sentenceEnded = false;
         outOfRange = false;
         dialogueBoxGUI.gameObject.SetActive(true);
         nameText.text = Names;
@@ -88,8 +89,8 @@ public class DialogueSystem: MonoBehaviour {
                     StartCoroutine(DisplayString(dialogueLines[tempDialogueIndex]));
 
                     //debug 
-                    print(currentDialogueIndex);
-                    print(dialogueLength);
+                    //print(currentDialogueIndex);
+                    //print(dialogueLength);
 
                     if (currentDialogueIndex >= dialogueLength)
                     {
@@ -117,7 +118,8 @@ public class DialogueSystem: MonoBehaviour {
             }
             dialogueEnded = false;
             dialogueActive = false;
-            DropDialogue();
+            sentenceEnded = true;
+            OutOfRange();
         }
     }
 
@@ -190,12 +192,12 @@ public class DialogueSystem: MonoBehaviour {
         outOfRange = true;
         if (outOfRange == true)
         {
+            sentenceEnded = true;
             letterIsMultiplied = false;
             dialogueActive = false;
             StopAllCoroutines();
             dialogueGUI.SetActive(false);
             dialogueBoxGUI.gameObject.SetActive(false);
-            sentenceEnded = false;
         }
     }
 }

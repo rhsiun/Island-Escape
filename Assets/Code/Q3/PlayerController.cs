@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
 
     public Transform projectileOrigin;
     public GameObject projectilePrefab;
+    public int foodNum = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -71,6 +72,7 @@ public class PlayerController : MonoBehaviour
                 if(targetFood != null) {
                     targetFood.Interact();
                     hungerValue += 5;
+                    foodNum++;
                     print("Current hungerValue is "+hungerValue);
                 }
 
