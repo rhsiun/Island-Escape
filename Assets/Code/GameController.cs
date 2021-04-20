@@ -36,7 +36,7 @@ public class GameController : MonoBehaviour
         this.gameObject.GetComponent<GameController>().enabled = true;
         dialogueSystem.Names = Name;
         dialogueSystem.dialogueLines = sentences;
-        //dialogueSystem.NPCName();
+        dialogueSystem.NPCName();
     }
 
     // Update is called once per frame
