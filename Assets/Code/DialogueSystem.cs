@@ -195,6 +195,7 @@ public class DialogueSystem: MonoBehaviour {
             StopAllCoroutines();
             dialogueGUI.SetActive(false);
             dialogueBoxGUI.gameObject.SetActive(false);
+            sentenceEnded = false;
         }
     }
 }

@@ -7,11 +7,13 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     public DialogueSystem dialogueSystem;
     public string Name;
+    public GameObject player;
 
 
     [TextArea(5, 10)]
     public string[] sentences;
     void Start () {
+        //player.gameObject.GetComponent<
         this.gameObject.GetComponent<GameController>().enabled = true;
         dialogueSystem.Names = Name;
         dialogueSystem.dialogueLines = sentences;

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
@@ -10,6 +10,8 @@ public class NPC : MonoBehaviour {
     public Transform NPCCharacter;
 
     private DialogueSystem dialogueSystem;
+
+    private int encounterTime=0;
 
     public string Name;
 
@@ -28,20 +30,26 @@ public class NPC : MonoBehaviour {
 
     public void OnTriggerStay(Collider other)
     {
-        this.gameObject.GetComponent<NPC>().enabled = true;
-        FindObjectOfType<DialogueSystem>().EnterRangeOfNPC();
-        if ((other.gameObject.tag == "Player") && Input.GetKeyDown(KeyCode.F))
-        {
+        if(encounterTime==0) {
             this.gameObject.GetComponent<NPC>().enabled = true;
-            dialogueSystem.Names = Name;
-            dialogueSystem.dialogueLines = sentences;
-            FindObjectOfType<DialogueSystem>().NPCName();
+            dialogueSystem.EnterRangeOfNPC();
+            if ((other.gameObject.tag == "Player"))
+            {
+                this.gameObject.GetComponent<NPC>().enabled = true;
+                dialogueSystem.Names = Name;
+                dialogueSystem.dialogueLines = sentences;
+                dialogueSystem.NPCName();
+                encounterTime = 1;
+            }
         }
+        
     }
 
     public void OnTriggerExit()
     {
-        FindObjectOfType<DialogueSystem>().OutOfRange();
+        dialogueSystem.OutOfRange();
         this.gameObject.GetComponent<NPC>().enabled = false;
+        encounterTime = 0;
     }
 }
+
