@@ -15,11 +15,13 @@ public class GameController : MonoBehaviour
     public Sprite achorn;
     public Sprite banana;
     public Sprite DesiredTree;
+    public Sprite Rabbit;
     private PlayerController playerController;
     private RigidbodyFirstPersonController rigidbodyFirstPersonController;
     private bool init = true;
     private int currentFoodNum;
     private int currentDesiredTreeNum;
+    private int currentRabbitNum;
 
 
     [TextArea(5, 10)]
@@ -69,6 +71,11 @@ public class GameController : MonoBehaviour
         if(playerController.treeNum > currentDesiredTreeNum) {
             inventoryUI.updateInventory(DesiredTree);
             currentDesiredTreeNum = playerController.treeNum;
+        }
+
+        if(playerController.rabbitNum > currentRabbitNum) {
+            inventoryUI.updateInventory(Rabbit);
+            currentRabbitNum = playerController.rabbitNum;
         }
         
         

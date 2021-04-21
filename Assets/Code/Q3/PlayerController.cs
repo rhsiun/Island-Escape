@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public GameObject projectilePrefab;
     public int foodNum = 0;
     public int treeNum = 0;
+    public int rabbitNum = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -99,6 +100,13 @@ public class PlayerController : MonoBehaviour
                     targetKey.Interact(instance);
                     print("obtained key to the door");
                 }
+
+                // Rabbit targetRabbit = hit.transform.GetComponent<Rabbit>();
+                // if(targetRabbit!=null){
+                //     targetRabbit.Interact();
+                //     rabbitNum++;
+                //     print("obtained rabbit");
+                // }
             }
         }
         if(Input.GetMouseButtonDown(0)){
