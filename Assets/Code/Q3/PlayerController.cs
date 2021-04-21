@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
                 //Doors
                 Door targetDoor = hit.transform.GetComponent<Door>();
                 if(targetDoor != null) {
+                    print("door open");
                     targetDoor.Interact();
                 }
 
