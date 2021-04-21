@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public Transform projectileOrigin;
     public GameObject projectilePrefab;
     public int foodNum = 0;
+    public int treeNum = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -82,6 +83,21 @@ public class PlayerController : MonoBehaviour
                 if(targetBarrel != null) {
                     targetBarrel.Interact(instance);
                     print("Obtained barrel");
+                }
+
+                //DesiredTree
+                DesiredTree targetTree = hit.transform.GetComponent<DesiredTree>();
+                if(targetTree != null) {
+                    targetTree.Interact();
+                    treeNum++;
+                    print("Obtained barrel");
+                }
+
+                //Key
+                keyItem targetKey = hit.transform.GetComponent<keyItem>();
+                if(targetKey!=null){
+                    targetKey.Interact(instance);
+                    print("obtained key to the door");
                 }
             }
         }
