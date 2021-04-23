@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     public int treeNum = 0;
     public int rabbitNum = 0;
 
+    public int keyNum = 0;
+
+    public int barrelNum = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -83,6 +86,7 @@ public class PlayerController : MonoBehaviour
                 Barrel targetBarrel = hit.transform.GetComponent<Barrel>();
                 if(targetBarrel != null) {
                     targetBarrel.Interact(instance);
+                    barrelNum++;
                     print("Obtained barrel");
                 }
 
@@ -98,6 +102,7 @@ public class PlayerController : MonoBehaviour
                 keyItem targetKey = hit.transform.GetComponent<keyItem>();
                 if(targetKey!=null){
                     targetKey.Interact(instance);
+                    keyNum++;
                     print("obtained key to the door");
                 }
 
