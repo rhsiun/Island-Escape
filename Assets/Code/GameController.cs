@@ -16,6 +16,8 @@ public class GameController : MonoBehaviour
     public Sprite banana;
     public Sprite DesiredTree;
     public Sprite Rabbit;
+    public Sprite key;
+    public Sprite Barrel;
     private PlayerController playerController;
     private RigidbodyFirstPersonController rigidbodyFirstPersonController;
     private bool init = true;

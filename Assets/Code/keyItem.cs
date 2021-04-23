@@ -8,6 +8,7 @@ public class keyItem : MonoBehaviour
     public void Interact(PlayerController player) {
         
         player.keyIdsObtained.Add(id);
+        // player.keyNum+=1;
         Destroy(gameObject);
     }
 

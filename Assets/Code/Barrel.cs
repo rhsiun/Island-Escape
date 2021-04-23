@@ -8,6 +8,7 @@ public class Barrel : MonoBehaviour
     public void Interact(PlayerController player) {
         
         player.keyIdsObtained.Add(id);
+        // player.barrelNum += 1;
         Destroy(gameObject);
     }
 }
