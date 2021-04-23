@@ -16,12 +16,16 @@ public class GameController : MonoBehaviour
     public Sprite banana;
     public Sprite DesiredTree;
     public Sprite Rabbit;
+    public Sprite key;
+    public Sprite Barrel;
     private PlayerController playerController;
     private RigidbodyFirstPersonController rigidbodyFirstPersonController;
     private bool init = true;
     private int currentFoodNum;
     private int currentDesiredTreeNum;
     private int currentRabbitNum;
+    private int currentKeyNum;
+    private int currentBarrelNum;
 
 
     [TextArea(5, 10)]
@@ -77,6 +81,16 @@ public class GameController : MonoBehaviour
             inventoryUI.updateInventory(Rabbit);
             currentRabbitNum = playerController.rabbitNum;
         }
+
+        // if(playerController.keyNum > currentKeyNum){
+        //     inventoryUI.updateInventory(key);
+        //     currentKeyNum = playerController.keyNum;
+        // }
+
+        // if(playerController.barrelNum > currentBarrelNum){
+        //     inventoryUI.updateInventory(Barrel);
+        //     currentBarrelNum = playerController.barrelNum;
+        // }
         
         
     }

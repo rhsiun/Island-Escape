@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     public int foodNum = 0;
     public int treeNum = 0;
     public int rabbitNum = 0;
+    // public int keyNum = 0;
+    // public int barrelNum = 0;
 
     // Start is called before the first frame update
     void Start()
