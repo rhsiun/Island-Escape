@@ -2136,8 +2136,8 @@ MonoBehaviour:
   inventoryUI: {fileID: 958329702}
   dialogueSystem: {fileID: 1726202055}
   player: {fileID: 203516955}
-  gun: {fileID: 21300000, guid: 07102bc15235ec443a9e9d529e2aa0a7, type: 3}
-  axe: {fileID: 21300000, guid: ae4ee5dc895c96c408d7d7e6328eadb9, type: 3}
+  gun: {fileID: -9217254708722954251, guid: b0477227876b66747a85d8ec06907f57, type: 3}
+  axe: {fileID: 21300000, guid: 988c3a76524314621b8f9e84b6898ce4, type: 3}
   Name: Little Fox
   sentences:
   - What does the fox say?
@@ -7920,8 +7920,8 @@ MonoBehaviour:
   inventoryUI: {fileID: 958329702}
   dialogueSystem: {fileID: 1726202055}
   player: {fileID: 203516955}
-  gun: {fileID: 21300000, guid: 07102bc15235ec443a9e9d529e2aa0a7, type: 3}
-  axe: {fileID: 21300000, guid: ae4ee5dc895c96c408d7d7e6328eadb9, type: 3}
+  gun: {fileID: -9217254708722954251, guid: b0477227876b66747a85d8ec06907f57, type: 3}
+  axe: {fileID: 21300000, guid: 988c3a76524314621b8f9e84b6898ce4, type: 3}
   Name: Isaac
   sentences:
   - WHAAAAT UP YOUND LAD!!!
