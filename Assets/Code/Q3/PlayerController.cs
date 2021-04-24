@@ -18,12 +18,11 @@ public class PlayerController : MonoBehaviour
     public int foodNum = 0;
     public int treeNum = 0;
     public int rabbitNum = 0;
-    // public int keyNum = 0;
-    // public int barrelNum = 0;
-
     public int keyNum = 0;
 
     public int barrelNum = 0;
+    public bool canOpenFire = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -116,10 +115,10 @@ public class PlayerController : MonoBehaviour
                 // }
             }
         }
-        if(Input.GetMouseButtonDown(0)){
-            PrimaryAttack();
+        if(Input.GetMouseButtonDown(0) && canOpenFire){
+            SecondaryAttack();
         }
-        if(Input.GetMouseButtonDown(1)){
+        if(Input.GetMouseButtonDown(1) && canOpenFire){
             SecondaryAttack();
         }
        

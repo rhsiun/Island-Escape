@@ -40,6 +40,9 @@ public class GameController : MonoBehaviour
         playerController.enabled= false;
         rigidbodyFirstPersonController.enabled=false;
 
+        //Disable gun
+        //player.gameObject.GetComponent<
+
         //enable dialogue
         // this.gameObject.GetComponent<GameController>().enabled = true;
         // dialogueSystem.Names = Name;
@@ -85,13 +88,13 @@ public class GameController : MonoBehaviour
 
         //If we picked up a key
         if(playerController.keyNum > currentKeyNum) {
-            inventoryUI.updateInventory(Rabbit, "key");
+            inventoryUI.updateInventory(key, "key");
             currentKeyNum = playerController.keyNum;
         }
 
         //If we picked up a barrel
         if(playerController.barrelNum > currentBarrelNum) {
-            inventoryUI.updateInventory(DesiredTree, "barrel");
+            inventoryUI.updateInventory(Barrel, "barrel");
             currentBarrelNum = playerController.barrelNum;
         }
         

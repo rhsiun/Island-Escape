@@ -13,6 +13,7 @@ public class NPC : MonoBehaviour {
 
     public DialogueSystem dialogueSystem;
     public GameObject player;
+    private RigidbodyFirstPersonController rigidbodyFirstPersonController;
 
     private int encounterTime=0;
     private PlayerController playerController;
@@ -20,6 +21,10 @@ public class NPC : MonoBehaviour {
     private bool[] isCompleted;
     private int missionNum = 4;
     private int missionId = 0;
+
+    //sprites
+    public Sprite gun;
+    public Sprite axe;
 
     public string Name;
 
@@ -30,6 +35,7 @@ public class NPC : MonoBehaviour {
         //Initialization
         playerController = player.gameObject.GetComponent<PlayerController>();
         gameController = player.gameObject.GetComponent<GameController>();
+        rigidbodyFirstPersonController = player.gameObject.GetComponent<RigidbodyFirstPersonController>();
 
         //Initialize mission states
         isCompleted = new bool[missionNum];
@@ -41,9 +47,25 @@ public class NPC : MonoBehaviour {
     }
 	
 	void Update () {
-          Vector3 Pos = Camera.main.WorldToScreenPoint(NPCCharacter.position);
-          Pos.y += 175;
-          ChatBackGround.position = Pos;
+        //   Vector3 Pos = Camera.main.WorldToScreenPoint(NPCCharacter.position);
+        //   Pos.y += 175;
+        //   ChatBackGround.position = Pos;
+    }
+
+    public void OnTriggerEnter(Collider other) {
+        //Mission 2 trigger
+        if(Name.Equals("You")) {
+            if ((other.gameObject.tag == "Player") && (this.gameObject.name == "Mission2TriggerZone"))
+                {
+                    //start conversation
+                    this.gameObject.GetComponent<NPC>().enabled = true;
+                    dialogueSystem.Names = Name;
+
+                    //conversation
+                    dialogueSystem.dialogueLines = sentences;
+                    dialogueSystem.NPCName();
+                }
+        }
     }
 
     public void OnTriggerStay(Collider other)
@@ -59,7 +81,7 @@ public class NPC : MonoBehaviour {
                 player.gameObject.GetComponent<PlayerController>().enabled= false;
                 this.gameObject.GetComponent<NPC>().enabled = true;
                 dialogueSystem.EnterRangeOfNPC();
-                if ((other.gameObject.tag == "Player") && (this.gameObject.tag == "NPC"))
+                if ((other.gameObject.tag == "Player") && (this.gameObject.name == "LittleFox"))
                 {
                     //start conversation
                     this.gameObject.GetComponent<NPC>().enabled = true;
@@ -108,6 +130,12 @@ public class NPC : MonoBehaviour {
 
                         //Change sentences
                         sentences=new string[]{"Thanks for your bananas", "I got a weird toy from you when you were asleep","Here you go!"};
+                        
+                        //update inventory
+                        inventoryUI.updateInventory(gun,"gun");
+
+                        //we can now open fire
+                        playerController.canOpenFire = true;
 
                         //conversation
                         dialogueSystem.dialogueLines = sentences;
@@ -126,6 +154,84 @@ public class NPC : MonoBehaviour {
         }
 
         //Mission 2 chop trees
+        if(encounterTime==0 && Name.Equals("Isaac")) {
+            //instances
+            int treeNum = 3;
+
+            //If we have completed the mission, we will change the dialogue
+            if(isCompleted[1]) {
+                //Show dialogue
+                player.gameObject.GetComponent<PlayerController>().enabled= false;
+                this.gameObject.GetComponent<NPC>().enabled = true;
+                dialogueSystem.EnterRangeOfNPC();
+                if ((other.gameObject.tag == "Player") && (this.gameObject.name == "Issac"))
+                {
+                    //start conversation
+                    this.gameObject.GetComponent<NPC>().enabled = true;
+                    dialogueSystem.Names = Name;
+
+                    //Change sentences
+                    sentences=new string[]{"I heard there's a maze on this island, wonder what's there..."};
+
+                    //conversation
+                    dialogueSystem.dialogueLines = sentences;
+                    dialogueSystem.NPCName();
+                    encounterTime = 1;
+                }
+            }
+
+            //If we have not completed the mission
+            if(!isCompleted[1]) {
+                //If we does not have enough trees
+                if(playerController.treeNum < treeNum ){
+                    player.gameObject.GetComponent<PlayerController>().enabled= false;
+                    this.gameObject.GetComponent<NPC>().enabled = true;
+                    dialogueSystem.EnterRangeOfNPC();
+                    if ((other.gameObject.tag == "Player") && (this.gameObject.name == "Isaac"))
+                    {
+                        this.gameObject.GetComponent<NPC>().enabled = true;
+                        dialogueSystem.Names = Name;
+                        dialogueSystem.dialogueLines = sentences;
+                        dialogueSystem.NPCName();
+                        encounterTime = 1;
+                    }
+                }
+
+                //If we have collected enough bananas
+                if(playerController.treeNum >= treeNum ){
+                    print("Mission complete");
+
+                    //Show dialogue
+                    player.gameObject.GetComponent<PlayerController>().enabled= false;
+                    this.gameObject.GetComponent<NPC>().enabled = true;
+                    dialogueSystem.EnterRangeOfNPC();
+                    if ((other.gameObject.tag == "Player") && (this.gameObject.name == "Isaac"))
+                    {
+                        //start conversation
+                        this.gameObject.GetComponent<NPC>().enabled = true;
+                        dialogueSystem.Names = Name;
+
+                        //Change sentences
+                        sentences=new string[]{"Thanks YOUND MAN!", "I got a weird toy from you when you were asleep","Here you go!"};
+
+                        //update UI
+                        inventoryUI.updateInventory(axe,"axe");
+
+                        //conversation
+                        dialogueSystem.dialogueLines = sentences;
+                        dialogueSystem.NPCName();
+                        encounterTime = 1;
+                    }
+
+                    //remove from inventory
+                    inventoryUI.removeInventory("tree", treeNum);
+
+                    //mark the mission as complete
+                    isCompleted[missionId] = true;
+                    missionId++;
+                }
+            }
+        }
         
     }
 
