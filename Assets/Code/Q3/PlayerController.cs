@@ -39,10 +39,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(hungerValue < 20)
-        {
-            print("You are starving, please find something to eat");
-        }
         if(Input.GetKeyDown(KeyCode.E)) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -143,7 +139,7 @@ public class PlayerController : MonoBehaviour
         if(hitSomething){
             Rigidbody targetRigidbody = hit.transform.GetComponent<Rigidbody>();
             if(targetRigidbody){
-                targetRigidbody.AddForce(povOrigin.forward*100f,ForceMode.Impulse);
+                targetRigidbody.AddForce(povOrigin.forward*150f,ForceMode.Impulse);
             }
         }
     }
@@ -152,6 +148,6 @@ public class PlayerController : MonoBehaviour
         print("secondaryattack");
         GameObject projectile = Instantiate(projectilePrefab,projectileOrigin.position,Quaternion.LookRotation(povOrigin.forward));
         projectile.transform.localScale = Vector3.one*5f;
-        projectile.GetComponent<Rigidbody>().AddForce(povOrigin.forward*25f,ForceMode.Impulse);
+        projectile.GetComponent<Rigidbody>().AddForce(povOrigin.forward*50f,ForceMode.Impulse);
     }
 }
