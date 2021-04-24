@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     public int barrelNum = 0;
     public bool canOpenFire = false;
+    public GameObject rifle;
     
     // Start is called before the first frame update
     void Start()

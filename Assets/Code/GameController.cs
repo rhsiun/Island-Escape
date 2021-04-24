@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     // Start is called before the first frame update
+    //outlets
     public DialogueSystem dialogueSystem;
     public InventoryUI inventoryUI;
     public string Name;
@@ -18,6 +19,7 @@ public class GameController : MonoBehaviour
     public Sprite Rabbit;
     public Sprite key;
     public Sprite Barrel;
+    
     private PlayerController playerController;
     private RigidbodyFirstPersonController rigidbodyFirstPersonController;
     private bool init = true;
@@ -41,7 +43,7 @@ public class GameController : MonoBehaviour
         rigidbodyFirstPersonController.enabled=false;
 
         //Disable gun
-        //player.gameObject.GetComponent<
+        playerController.rifle.SetActive(false);
 
         //enable dialogue
         // this.gameObject.GetComponent<GameController>().enabled = true;

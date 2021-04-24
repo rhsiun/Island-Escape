@@ -862,6 +862,8 @@ MonoBehaviour:
   rabbitNum: 0
   keyNum: 0
   barrelNum: 0
+  canOpenFire: 0
+  rifle: {fileID: 2096470763}
 --- !u!1001 &204048511
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2134,6 +2136,8 @@ MonoBehaviour:
   inventoryUI: {fileID: 958329702}
   dialogueSystem: {fileID: 1726202055}
   player: {fileID: 203516955}
+  gun: {fileID: 21300000, guid: 07102bc15235ec443a9e9d529e2aa0a7, type: 3}
+  axe: {fileID: 21300000, guid: ae4ee5dc895c96c408d7d7e6328eadb9, type: 3}
   Name: Little Fox
   sentences:
   - What does the fox say?
@@ -6389,6 +6393,8 @@ MonoBehaviour:
   inventoryUI: {fileID: 958329702}
   dialogueSystem: {fileID: 1726202055}
   player: {fileID: 203516955}
+  gun: {fileID: 0}
+  axe: {fileID: 0}
   Name: You
   sentences:
   - Strange person, talk to him.
@@ -7914,6 +7920,8 @@ MonoBehaviour:
   inventoryUI: {fileID: 958329702}
   dialogueSystem: {fileID: 1726202055}
   player: {fileID: 203516955}
+  gun: {fileID: 21300000, guid: 07102bc15235ec443a9e9d529e2aa0a7, type: 3}
+  axe: {fileID: 21300000, guid: ae4ee5dc895c96c408d7d7e6328eadb9, type: 3}
   Name: Isaac
   sentences:
   - WHAAAAT UP YOUND LAD!!!
@@ -10863,6 +10871,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092001872}
   m_CullTransparentMesh: 1
+--- !u!1 &2096470763 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1788039210614278672, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
+  m_PrefabInstance: {fileID: 57246258}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2107918794
 PrefabInstance:
   m_ObjectHideFlags: 0
