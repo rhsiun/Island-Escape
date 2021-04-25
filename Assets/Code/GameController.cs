@@ -48,11 +48,11 @@ public class GameController : MonoBehaviour
         //Disable gun
         playerController.rifle.SetActive(false);
 
-        //enable dialogue
-        this.gameObject.GetComponent<GameController>().enabled = true;
-        dialogueSystem.Names = Name;
-        dialogueSystem.dialogueLines = sentences;
-        dialogueSystem.NPCName();
+        // //enable dialogue
+        // this.gameObject.GetComponent<GameController>().enabled = true;
+        // dialogueSystem.Names = Name;
+        // dialogueSystem.dialogueLines = sentences;
+        // dialogueSystem.NPCName();
     }
 
     // Update is called once per frame
