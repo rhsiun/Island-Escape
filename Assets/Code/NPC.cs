@@ -136,7 +136,7 @@ public class NPC : MonoBehaviour {
                         inventoryUI.updateInventory(gun,"gun");
 
                         //we can now open fire
-                        playerController.rifle.SetActive(false);
+                        playerController.rifle.SetActive(true);
                         playerController.canOpenFire = true;
 
                         //conversation
