@@ -24,7 +24,8 @@ public class NPC : MonoBehaviour {
 
     //sprites
     public Sprite gun;
-    public Sprite axe;
+    public Sprite carrot;
+    public Sprite boatSprite;
 
     public string Name;
 
@@ -172,7 +173,7 @@ public class NPC : MonoBehaviour {
                     dialogueSystem.Names = Name;
 
                     //Change sentences
-                    sentences=new string[]{"I heard there's a maze on this island, wonder what's there..."};
+                    sentences=new string[]{"Keep forward, KEEP FORWARD!!"};
 
                     //conversation
                     dialogueSystem.dialogueLines = sentences;
@@ -213,11 +214,13 @@ public class NPC : MonoBehaviour {
                         dialogueSystem.Names = Name;
 
                         //Change sentences
-                        sentences=new string[]{"Thanks YOUND MAN!", "I got a weird toy from you when you were asleep","Here you go!"};
+                        sentences=new string[]{"Thanks YOUND MAN!", "Here's something to eat.","You may find other use of them."};
 
                         //update UI
-                        inventoryUI.updateInventory(axe,"axe");
-
+                        for(int i = 0;i < 4; i++) {
+                            inventoryUI.updateInventory(carrot,"axe");
+                        }
+                        
                         //conversation
                         dialogueSystem.dialogueLines = sentences;
                         dialogueSystem.NPCName();
@@ -234,6 +237,87 @@ public class NPC : MonoBehaviour {
             }
         }
         
+        //Mission 3 catch rabbit
+        //Mission 2 chop trees
+        if(encounterTime==0 && Name.Equals("Mubai Li")) {
+            //instances
+            int rabbitNum = 1;
+
+            //If we have completed the mission, we will change the dialogue
+            if(isCompleted[2]) {
+                //Show dialogue
+                player.gameObject.GetComponent<PlayerController>().enabled= false;
+                this.gameObject.GetComponent<NPC>().enabled = true;
+                dialogueSystem.EnterRangeOfNPC();
+                if ((other.gameObject.tag == "Player") && (this.gameObject.name == "MubaiLi"))
+                {
+                    //start conversation
+                    this.gameObject.GetComponent<NPC>().enabled = true;
+                    dialogueSystem.Names = Name;
+
+                    //Change sentences
+                    sentences=new string[]{"Sail away now soldier!"};
+
+                    //conversation
+                    dialogueSystem.dialogueLines = sentences;
+                    dialogueSystem.NPCName();
+                    encounterTime = 1;
+                }
+            }
+
+            //If we have not completed the mission
+            if(!isCompleted[2]) {
+                //If we does not have enough trees
+                if(playerController.rabbitNum < rabbitNum ){
+                    //print("debug");
+                    player.gameObject.GetComponent<PlayerController>().enabled= false;
+                    this.gameObject.GetComponent<NPC>().enabled = true;
+                    dialogueSystem.EnterRangeOfNPC();
+                    if ((other.gameObject.tag == "Player") && (this.gameObject.name == "MubaiLi"))
+                    {
+                        this.gameObject.GetComponent<NPC>().enabled = true;
+                        dialogueSystem.Names = Name;
+                        dialogueSystem.dialogueLines = sentences;
+                        dialogueSystem.NPCName();
+                        encounterTime = 1;
+                    }
+                }
+
+                //If we have collected enough bananas
+                if(playerController.rabbitNum >= rabbitNum ){
+                    print("Mission complete");
+
+                    //Show dialogue
+                    player.gameObject.GetComponent<PlayerController>().enabled= false;
+                    this.gameObject.GetComponent<NPC>().enabled = true;
+                    dialogueSystem.EnterRangeOfNPC();
+                    if ((other.gameObject.tag == "Player") && (this.gameObject.name == "MubaiLi"))
+                    {
+                        //start conversation
+                        this.gameObject.GetComponent<NPC>().enabled = true;
+                        dialogueSystem.Names = Name;
+
+                        //Change sentences
+                        sentences=new string[]{"谢谢您", "May the nature be with you","How do you like my KungFu anyway?"};
+
+                        //update UI
+                        inventoryUI.updateInventory(boatSprite,"boat");
+                        
+                        //conversation
+                        dialogueSystem.dialogueLines = sentences;
+                        dialogueSystem.NPCName();
+                        encounterTime = 1;
+                    }
+
+                    //remove from inventory
+                    inventoryUI.removeInventory("rabbit", rabbitNum);
+
+                    //mark the mission as complete
+                    isCompleted[missionId] = true;
+                    missionId++;
+                }
+            }
+        }
     }
 
     public void OnTriggerExit()
