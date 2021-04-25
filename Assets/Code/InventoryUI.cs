@@ -10,6 +10,7 @@ public class InventoryUI : MonoBehaviour
     public string[] inventoryNames;
     public InventorySlot[] slots;
     private int totalNum = 0;
+    public Enemy enemy;
     void Start()
     {
         

@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     public string Name;
     public GameObject player;
     public GameObject inventoryCanvas;
+    public Enemy enemy;
     public Sprite achorn;
     public Sprite banana;
     public Sprite DesiredTree;
@@ -63,6 +64,18 @@ public class GameController : MonoBehaviour
             playerController.enabled = true;
             rigidbodyFirstPersonController.enabled=true;
             init = false;
+        }
+
+        //Detect enemy death
+        if(enemy.blood <= 0) {
+            dialogueSystem.Names = Name;
+
+            //change dialogue
+            sentences = new string[]{"Couple barrels of freshwater?","You need those for sailing!"};
+
+            //start conversatin
+            dialogueSystem.dialogueLines = sentences;
+            dialogueSystem.NPCName();
         }
 
         //Open inventory UI

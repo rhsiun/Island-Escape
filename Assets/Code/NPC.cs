@@ -55,17 +55,26 @@ public class NPC : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other) {
         //Mission 2 trigger
-        if(Name.Equals("You")) {
-            if ((other.gameObject.tag == "Player") && (this.gameObject.name == "Mission2TriggerZone"))
-                {
-                    //start conversation
-                    this.gameObject.GetComponent<NPC>().enabled = true;
-                    dialogueSystem.Names = Name;
+        if(Name.Equals("Hi")) {
+            if ((other.gameObject.tag == "Player") && (this.gameObject.name == "Mission2TriggerZone")) {
+                //start conversation
+                this.gameObject.GetComponent<NPC>().enabled = true;
+                dialogueSystem.Names = Name;
 
-                    //conversation
-                    dialogueSystem.dialogueLines = sentences;
-                    dialogueSystem.NPCName();
-                }
+                //conversation
+                dialogueSystem.dialogueLines = sentences;
+                dialogueSystem.NPCName();
+            }
+
+            if ((other.gameObject.tag == "Player") && (this.gameObject.name == "BossTriggerZone")) {
+                //start conversation
+                this.gameObject.GetComponent<NPC>().enabled = true;
+                dialogueSystem.Names = Name;
+
+                //conversation
+                dialogueSystem.dialogueLines = sentences;
+                dialogueSystem.NPCName();
+            }
         }
     }
 

@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     public int patrolIndex;
     public float chaseDistance;
     public int blood = 100;
+    public bool isDeafeated = false;
 
     // Start is called before the first frame update
     void Start()
@@ -73,6 +74,7 @@ public class Enemy : MonoBehaviour
         if(blood<0)
         {
             Destroy(gameObject);
+            isDeafeated = true;
         }
     }
 }
