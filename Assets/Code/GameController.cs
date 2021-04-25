@@ -120,10 +120,10 @@ public class GameController : MonoBehaviour
         }
         
         //If we have died
-        if(playerController.blood <= 0) {
-            rigidbodyFirstPersonController.movementSettings.ForwardSpeed = 0f;
-            rigidbodyFirstPersonController.movementSettings.BackwardSpeed = 0f;
-            rigidbodyFirstPersonController.movementSettings.StrafeSpeed = 0f;
-        }
+        // if(playerController.blood <= 0) {
+        //     rigidbodyFirstPersonController.movementSettings.ForwardSpeed = 0f;
+        //     rigidbodyFirstPersonController.movementSettings.BackwardSpeed = 0f;
+        //     rigidbodyFirstPersonController.movementSettings.StrafeSpeed = 0f;
+        // }
     }
 }
