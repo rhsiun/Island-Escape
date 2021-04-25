@@ -1046,7 +1046,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3a9857ff38f5efa41ae3ff3ff643f2bd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.3
+      value: 1.42
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3a9857ff38f5efa41ae3ff3ff643f2bd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1620,7 +1620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3a9857ff38f5efa41ae3ff3ff643f2bd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 303.59
+      value: 301.61
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3a9857ff38f5efa41ae3ff3ff643f2bd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2099,7 +2099,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3682f7747d485db4586750a832808b31, type: 2}
+  - {fileID: 2100000, guid: 404a8923f5ace844789db66718db211f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2137,7 +2137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505274777}
   m_LocalRotation: {x: -0, y: -0.5145981, z: -0, w: 0.8574315}
-  m_LocalPosition: {x: 86.27, y: 21.64, z: 119.75}
+  m_LocalPosition: {x: 99.74, y: 28.07, z: 112.57}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2170,9 +2170,9 @@ MonoBehaviour:
   inventoryUI: {fileID: 958329702}
   dialogueSystem: {fileID: 1726202055}
   player: {fileID: 203516955}
-  gun: {fileID: 21300000, guid: e7b8e0b0b6119c94d90f711f8013cc80, type: 3}
+  gun: {fileID: 21300000, guid: 967ca13a020bd4fe8846f3e0e3d15576, type: 3}
   carrot: {fileID: 21300000, guid: 988c3a76524314621b8f9e84b6898ce4, type: 3}
-  boatSprite: {fileID: 21300000, guid: cbf3b7a4bcf791243879677f4b7619d8, type: 3}
+  boatSprite: {fileID: 21300000, guid: d3f44e5e96b1146c08e4d2bd18823ec7, type: 3}
   Name: Little Fox
   sentences:
   - What does the fox say?
@@ -4419,9 +4419,9 @@ MonoBehaviour:
   inventoryUI: {fileID: 958329702}
   dialogueSystem: {fileID: 1726202055}
   player: {fileID: 203516955}
-  gun: {fileID: 21300000, guid: e7b8e0b0b6119c94d90f711f8013cc80, type: 3}
+  gun: {fileID: 21300000, guid: 967ca13a020bd4fe8846f3e0e3d15576, type: 3}
   carrot: {fileID: 21300000, guid: 988c3a76524314621b8f9e84b6898ce4, type: 3}
-  boatSprite: {fileID: 21300000, guid: cbf3b7a4bcf791243879677f4b7619d8, type: 3}
+  boatSprite: {fileID: 21300000, guid: d3f44e5e96b1146c08e4d2bd18823ec7, type: 3}
   Name: Mubai Li
   sentences:
   - "\u4EBA\u5728\u6C5F\u6E56 \u8EAB\u4E0D\u7531\u5DF1\n"
@@ -8240,9 +8240,9 @@ MonoBehaviour:
   inventoryUI: {fileID: 958329702}
   dialogueSystem: {fileID: 1726202055}
   player: {fileID: 203516955}
-  gun: {fileID: 21300000, guid: e7b8e0b0b6119c94d90f711f8013cc80, type: 3}
+  gun: {fileID: 21300000, guid: 967ca13a020bd4fe8846f3e0e3d15576, type: 3}
   carrot: {fileID: 21300000, guid: 988c3a76524314621b8f9e84b6898ce4, type: 3}
-  boatSprite: {fileID: 21300000, guid: cbf3b7a4bcf791243879677f4b7619d8, type: 3}
+  boatSprite: {fileID: 21300000, guid: d3f44e5e96b1146c08e4d2bd18823ec7, type: 3}
   Name: Isaac
   sentences:
   - WHAAAAT UP YOUND LAD!!!
