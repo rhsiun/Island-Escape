@@ -19,7 +19,7 @@ public class NPC : MonoBehaviour {
     private PlayerController playerController;
     private GameController gameController;
     private bool[] isCompleted;
-    private int missionNum = 4;
+    private int missionNum = 3;
     private int missionId = 0;
 
     //sprites
@@ -65,16 +65,27 @@ public class NPC : MonoBehaviour {
                 dialogueSystem.dialogueLines = sentences;
                 dialogueSystem.NPCName();
             }
+        }
 
-            if ((other.gameObject.tag == "Player") && (this.gameObject.name == "BossTriggerZone")) {
-                //start conversation
-                this.gameObject.GetComponent<NPC>().enabled = true;
-                dialogueSystem.Names = Name;
+        //When encountering the boss
+        if ((other.gameObject.tag == "Player") && (this.gameObject.name == "BossTriggerZone")) {
+            //start conversation
+            this.gameObject.GetComponent<NPC>().enabled = true;
+            dialogueSystem.Names = Name;
+            //conversation
+            dialogueSystem.dialogueLines = sentences;
+            dialogueSystem.NPCName();
+        }
 
-                //conversation
-                dialogueSystem.dialogueLines = sentences;
-                dialogueSystem.NPCName();
-            }
+        //When at the final step
+        if ((other.gameObject.tag == "Player") && (this.gameObject.name == "Final")) {
+            //start conversation
+            this.gameObject.GetComponent<NPC>().enabled = true;
+            dialogueSystem.Names = Name;
+
+            //conversation
+            dialogueSystem.dialogueLines = sentences;
+            dialogueSystem.NPCName();
         }
     }
 
