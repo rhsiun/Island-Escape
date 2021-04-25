@@ -168,9 +168,11 @@ public class NPC : MonoBehaviour {
                     //remove from inventory
                     inventoryUI.removeInventory("banana", bananaNum);
 
+                    //remove from player controller
+                    playerController.foodNum -= bananaNum;
+
                     //mark the mission as complete
-                    isCompleted[missionId] = true;
-                    missionId++;
+                    isCompleted[0] = true;
                 }
             }
         }
@@ -182,11 +184,13 @@ public class NPC : MonoBehaviour {
 
             //If we have completed the mission, we will change the dialogue
             if(isCompleted[1]) {
+                //debug
+                print("complete chop tree");
                 //Show dialogue
                 player.gameObject.GetComponent<PlayerController>().enabled= false;
                 this.gameObject.GetComponent<NPC>().enabled = true;
                 dialogueSystem.EnterRangeOfNPC();
-                if ((other.gameObject.tag == "Player") && (this.gameObject.name == "Issac"))
+                if ((other.gameObject.tag == "Player") && (this.gameObject.name == "Isaac"))
                 {
                     //start conversation
                     this.gameObject.GetComponent<NPC>().enabled = true;
@@ -238,7 +242,7 @@ public class NPC : MonoBehaviour {
 
                         //update UI
                         for(int i = 0;i < 4; i++) {
-                            inventoryUI.updateInventory(carrot,"axe");
+                            inventoryUI.updateInventory(carrot,"carrot");
                         }
                         
                         //conversation
@@ -250,9 +254,11 @@ public class NPC : MonoBehaviour {
                     //remove from inventory
                     inventoryUI.removeInventory("tree", treeNum);
 
+                    //update player controller
+                    playerController.treeNum -= treeNum;
+
                     //mark the mission as complete
-                    isCompleted[missionId] = true;
-                    missionId++;
+                    isCompleted[1] = true;
                 }
             }
         }
@@ -265,6 +271,8 @@ public class NPC : MonoBehaviour {
 
             //If we have completed the mission, we will change the dialogue
             if(isCompleted[2]) {
+                //debug
+                print("complete mubai");
                 //Show dialogue
                 player.gameObject.GetComponent<PlayerController>().enabled= false;
                 this.gameObject.GetComponent<NPC>().enabled = true;
@@ -332,9 +340,11 @@ public class NPC : MonoBehaviour {
                     //remove from inventory
                     inventoryUI.removeInventory("rabbit", rabbitNum);
 
+                    //remove from player controller
+                    playerController.rabbitNum -= rabbitNum;
+
                     //mark the mission as complete
-                    isCompleted[missionId] = true;
-                    missionId++;
+                    isCompleted[2] = true;
                 }
             }
         }
