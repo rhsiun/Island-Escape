@@ -41,7 +41,9 @@ public class GameController : MonoBehaviour
 
         //Diasble walking and shooting motions
         playerController.enabled= false;
-        rigidbodyFirstPersonController.enabled=false;
+        rigidbodyFirstPersonController.movementSettings.ForwardSpeed = 0f;
+        rigidbodyFirstPersonController.movementSettings.BackwardSpeed = 0f;
+        rigidbodyFirstPersonController.movementSettings.StrafeSpeed = 0f;
 
         //Disable gun
         playerController.rifle.SetActive(false);
@@ -62,7 +64,9 @@ public class GameController : MonoBehaviour
 
         if(dialogueSystem.sentenceEnded && init) {
             playerController.enabled = true;
-            rigidbodyFirstPersonController.enabled=true;
+            rigidbodyFirstPersonController.movementSettings.ForwardSpeed = 8.0f;
+            rigidbodyFirstPersonController.movementSettings.BackwardSpeed = 4.0f;
+            rigidbodyFirstPersonController.movementSettings.StrafeSpeed = 4.0f;
             init = false;
         }
 
@@ -76,6 +80,8 @@ public class GameController : MonoBehaviour
             //start conversatin
             dialogueSystem.dialogueLines = sentences;
             dialogueSystem.NPCName();
+
+            enemy.blood=1;
         }
 
         //Open inventory UI
