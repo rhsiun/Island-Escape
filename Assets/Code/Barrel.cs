@@ -11,4 +11,8 @@ public class Barrel : MonoBehaviour
         // player.barrelNum += 1;
         Destroy(gameObject);
     }
+
+    public void InteractNoId(PlayerController player) {
+        Destroy(gameObject);
+    }
 }

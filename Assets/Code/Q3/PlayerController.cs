@@ -84,7 +84,12 @@ public class PlayerController : MonoBehaviour
                 //Barrel
                 Barrel targetBarrel = hit.transform.GetComponent<Barrel>();
                 if(targetBarrel != null && enemy.isDeafeated) {
-                    targetBarrel.Interact(instance);
+                    if(barrelNum >=2) {
+                        targetBarrel.Interact(instance);
+                    } else {
+                        targetBarrel.InteractNoId(instance);
+                    }
+                    
                     barrelNum++;
                     print("Obtained barrel");
                 }
