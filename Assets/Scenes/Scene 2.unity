@@ -648,7 +648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ddfab843a9845289315dbd5d4d3b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: -1
+  id: 1001
 --- !u!54 &90942388
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7264,6 +7264,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c2edd98f5a24d4b9501a10d037d7ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1405272039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1405272042}
+  - component: {fileID: 1405272041}
+  - component: {fileID: 1405272040}
+  m_Layer: 0
+  m_Name: Final
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1405272040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405272039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f416572884682046a8884f240c581a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChatBackGround: {fileID: 1946324624}
+  NPCCharacter: {fileID: 1543262498}
+  inventoryUI: {fileID: 958329702}
+  dialogueSystem: {fileID: 1726202055}
+  player: {fileID: 203516955}
+  gun: {fileID: -9217254708722954251, guid: b0477227876b66747a85d8ec06907f57, type: 3}
+  carrot: {fileID: 21300000, guid: 988c3a76524314621b8f9e84b6898ce4, type: 3}
+  boatSprite: {fileID: 21300000, guid: 988c3a76524314621b8f9e84b6898ce4, type: 3}
+  Name: Congratulations!
+  sentences:
+  - You have completed all missions!
+  - With the boat, fresh water barrels, food, you are ready to go!
+  - Thanks for playing this game~
+  - Please fell free to leave any comments and suggestions.
+--- !u!65 &1405272041
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405272039}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 5.4150314}
+  m_Center: {x: 0, y: 0, z: -0.88472366}
+--- !u!4 &1405272042
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405272039}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 447.72, y: 4.1, z: 94.94546}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 61
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1412357601
 GameObject:
   m_ObjectHideFlags: 0
@@ -11160,7 +11231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ddfab843a9845289315dbd5d4d3b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: -1
+  id: 1001
 --- !u!54 &1833415677
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12160,7 +12231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ddfab843a9845289315dbd5d4d3b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: -1
+  id: 1001
 --- !u!54 &2020429654
 Rigidbody:
   m_ObjectHideFlags: 0
