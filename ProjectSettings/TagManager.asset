@@ -6,11 +6,12 @@ TagManager:
   tags:
   - NPC
   - Mission2
+  - Fire
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - KillZone
   - Water
   - UI
   - POV
