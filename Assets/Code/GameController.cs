@@ -119,6 +119,11 @@ public class GameController : MonoBehaviour
             currentBarrelNum = playerController.barrelNum;
         }
         
-        
+        //If we have died
+        if(playerController.blood <= 0) {
+            rigidbodyFirstPersonController.movementSettings.ForwardSpeed = 0f;
+            rigidbodyFirstPersonController.movementSettings.BackwardSpeed = 0f;
+            rigidbodyFirstPersonController.movementSettings.StrafeSpeed = 0f;
+        }
     }
 }
