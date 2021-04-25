@@ -11,10 +11,10 @@ public class Enemy : MonoBehaviour
     //Configuration
     public Transform priorityTarget;
     public Transform target;
-    public Transform patrolRoute;
+    // public Transform patrolRoute;
 
     //State tracking
-    public int patrolIndex;
+    // public int patrolIndex;
     public float chaseDistance;
     public int blood = 100;
     public bool isDeafeated = false;
@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         float priorityTargetDistance = Vector3.Distance(transform.position, priorityTarget.position);
+        
 
         if(priorityTargetDistance <= chaseDistance) {
             target = priorityTarget;
@@ -44,22 +45,22 @@ public class Enemy : MonoBehaviour
         if(target) {
             navAgent.destination = target.position;
         }
-        if(patrolRoute) {
-            target = patrolRoute.GetChild(patrolIndex);
+        // if(patrolRoute) {
+        //     target = patrolRoute.GetChild(patrolIndex);
 
-            float distance = Vector3.Distance(transform.position, target.position);
-            // print("Distance: " + distance);
+        //     float distance = Vector3.Distance(transform.position, target.position);
+        //     // print("Distance: " + distance);
 
-            if(distance <= 1.5f) {
-                patrolIndex++;
-                if(patrolIndex >= patrolRoute.childCount) {
-                    patrolIndex++;
-                    if(patrolIndex >= patrolRoute.childCount) {
-                        patrolIndex = 0;
-                    }
-                }
-            }
-        }
+        //     if(distance <= 1.5f) {
+        //         patrolIndex++;
+        //         if(patrolIndex >= patrolRoute.childCount) {
+        //             patrolIndex++;
+        //             if(patrolIndex >= patrolRoute.childCount) {
+        //                 patrolIndex = 0;
+        //             }
+        //         }
+        //     }
+        // }
     }
 
     void OnCollisionEnter(Collision other)
